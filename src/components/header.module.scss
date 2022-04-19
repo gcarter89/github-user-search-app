@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 24px;
+
+    &_title {
+        user-select: none;
+    }
+
+    &_button {
+        all: inherit;
+        cursor: pointer;
+        height: fit-content;
+        color: #4B6A9B;
+            // fill: #4B6A9B;
+    }
+
+    &_button:hover {
+        color: #222731;
+        svg > path {
+            fill: #222731;
+        }
+    }
+
+    &_buttonCopy {
+        font-weight: 700;
+        padding-right: 12px;
+        letter-spacing: 2.5px;
+        margin: 0;
+    }
+}
+
