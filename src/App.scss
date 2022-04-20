@@ -35,3 +35,10 @@ p {
     font-size: 15px;
     line-height: 25px;
 }
+
+@media screen and (max-width: 425px) {
+    p {
+        font-size: 13px;
+    }
+}
+
