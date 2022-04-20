@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function Main() {
 
-    const [username, setUsername]= useState('octocat')
+    const [username, setUsername]= useState('octocat');
 
     return (
         <main className={styles.main}>

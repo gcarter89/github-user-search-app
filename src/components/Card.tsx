@@ -17,7 +17,8 @@ interface iUser {
     company?:string,
     twitter_username?:string,
     avatar_url?:string,
-    created_at:string
+    created_at:string,
+    bio?:string
 
 }
 
@@ -55,7 +56,7 @@ const Card: React.FC<iCardProps> = ({username}) => {
             </div>
 
             <div className={styles.card_description}>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>{data.bio ? data.bio : 'This profile has no bio'}</p>
             </div>
 
             <div className={styles.card_stats}>
