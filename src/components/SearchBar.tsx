@@ -3,11 +3,12 @@ import { ReactComponent as SearchIcon } from '../assets/icon-search.svg'
 import { useState } from 'react';
 
 interface iSearchBarProps {
-    setUsername : React.Dispatch<React.SetStateAction<string>>
+    setUsername: React.Dispatch<React.SetStateAction<string>>
+    found: boolean
 }
 
 
-const SearchBar: React.FC<iSearchBarProps> = ({setUsername}) => {
+const SearchBar: React.FC<iSearchBarProps> = ({setUsername, found}) => {
 
     const [input, setInput] = useState('');
 
@@ -22,10 +23,9 @@ const SearchBar: React.FC<iSearchBarProps> = ({setUsername}) => {
 
     return (
         <div className={styles.searchbar}>
-            <div className={styles.searchbar_iconInput}>
                 <SearchIcon className={styles.searchbar_icon} />
                 <input onChange={(e) => handleInputChange(e)} placeholder='Search Github username…' className={styles.searchbar_input} />
-            </div>
+                {!found && <p className={styles.searchbar_error}><strong>No results</strong></p>}
             <button onClick={(e) => handleSubmit(e, input)} className={styles.searchbar_button}>Search</button>
         </div>
         

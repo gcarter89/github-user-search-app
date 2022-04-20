@@ -23,23 +23,35 @@ export default function Main() {
 
     const [username, setUsername]= useState('octocat');
     const [data, setData] = useState<iUser>({created_at:""});
+    const [found, setFound] = useState(false);
 
     async function fetchUser(user:string) {
         const response = await fetch(`https://api.github.com/users/${user}`);
+
+        if (!response.ok) {
+            const result = false;
+            return result;
+        }
+
         const result = await response.json();
         return await result;
     }
 
     useEffect(() => { 
         fetchUser(username).then(function(result) {
-            setData(result)
+            if (result) {
+                setFound(true);
+                return setData(result)
+            } else {
+                setFound(false);
+            }
         })
     },[username])
 
 
     return (
         <main className={styles.main}>
-            <SearchBar setUsername={setUsername} />
+            <SearchBar found={found} setUsername={setUsername} />
             <Card user={data} />
         </main>
     )

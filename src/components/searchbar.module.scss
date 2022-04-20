@@ -1,9 +1,7 @@
 .searchbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 60px;
-
     box-sizing: border-box;
     max-width: 375px;
     width: 100%;
@@ -20,14 +18,23 @@
     }
 
     &_icon {
+        width: 60px;
+        overflow: initial;
         padding-right: 8px;
     }
 
     &_input {
         all: unset;
-        width: 200px;
+        width: 100%;
         font-size: 13px;
         line-height: 25px;
+        text-overflow: ellipsis;
+    }
+
+    &_error {
+        padding-right: 8px;
+        white-space: nowrap;
+        color: #F74646;
     }
 
     &_button {
