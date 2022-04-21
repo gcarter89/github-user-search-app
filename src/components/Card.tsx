@@ -27,6 +27,7 @@ interface iCardProps {
 
 
 const Card: React.FC<iCardProps> = ({user}) => {
+    console.log(user);
 
     return (
         <div className={styles.card}>
@@ -34,7 +35,7 @@ const Card: React.FC<iCardProps> = ({user}) => {
                 <img className={styles.card_image} src={user.avatar_url} alt="avatar" />
                 <div className={styles.card_nameHandleJoined}>
                     <div className={styles.card_nameHandle}>
-                        <h1><strong>{user.name}</strong></h1>
+                        <h1><strong>{user.name ? user.name : user.login}</strong></h1>
                         <h3 className={styles.card_handle}>@{user.login}</h3>
                     </div>
 
@@ -43,7 +44,11 @@ const Card: React.FC<iCardProps> = ({user}) => {
             </div>
 
             <div className={styles.card_description}>
-                <p>{user.bio ? user.bio : 'This profile has no bio'}</p>
+                {user.bio ? 
+                    <p>{user.bio}</p>
+                :
+                    <p className={styles.card__notAvailable}>This profile has no bio.</p> 
+            }
             </div>
 
             <div className={styles.card_stats}>
@@ -63,22 +68,55 @@ const Card: React.FC<iCardProps> = ({user}) => {
 
             <div className={styles.card_socials}>
                 <ul>
-                    <li>
-                        <LocationIcon />
-                        <p>{user.location ? user.location : 'Not Available'}</p>
-                    </li>
-                    <li>
-                        <WebsiteIcon />
-                        <p>{user.blog ? user.blog : 'Not Available'}</p>
-                    </li>
-                    <li>
-                        <TwitterIcon />
-                        <p>{user.twitter_username ? user.twitter_username : 'Not Available'}</p>
-                    </li>
-                    <li>
-                        <CompanyIcon />
-                        <p>{user.company ? user.company : 'Not Available'}</p>
-                    </li>
+                    {user.location ?
+                        <li>
+                            <LocationIcon />
+                            <p>{user.location}</p>
+                        </li>
+                    :
+                        <li className={styles.card__notAvailable}>
+                            <LocationIcon />
+                            <p>Not Available</p>
+                        </li>}
+                    {user.blog ? 
+                        <li>
+                            <WebsiteIcon />
+                            <p><a href={(user.blog.substring(0,8) === 'https://' || user.blog.substring(0,7) === 'http://') ? user.blog : `https://${user.blog}`} target="_blank" rel="noreferrer">{user.blog}</a></p>
+                        </li>
+                    :
+                        <li className={styles.card__notAvailable}>
+                            <WebsiteIcon />
+                            <p>Not Available</p>
+                        </li>
+                    }
+                    {user.twitter_username ?
+                        <li>
+                            <TwitterIcon />
+                            <p><a href={`https://www.twitter.com/${user.twitter_username}`} target="_blank" rel="noreferrer" >{user.twitter_username}</a></p>
+                        </li>
+                    :
+                        <li className={styles.card__notAvailable}>
+                            <TwitterIcon />
+                            <p>Not Available</p>
+                        </li>
+                    }
+                    {user.company ?
+                        <li>
+                            <CompanyIcon />
+                            <p>
+                                {user.company[0] === '@' ? 
+                                    <a href={`https://github.com/${user.company.substring(1)}`} target="_blank" rel="noreferrer">{user.company}</a>
+                                :
+                                user.company
+                            }                                
+                            </p>
+                        </li>
+                    :
+                        <li className={styles.card__notAvailable}>
+                            <CompanyIcon />
+                            <p>Not Available</p>
+                        </li>
+                    }
                 </ul>
             </div>
 

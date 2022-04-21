@@ -69,5 +69,9 @@
 @media screen and (min-width: 769px) {
     .searchbar {
         max-width: 730px;
+        &_error {
+            padding-right: 24px;
+        }
     }
+
 }
