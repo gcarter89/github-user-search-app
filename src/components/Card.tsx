@@ -30,12 +30,15 @@ const Card: React.FC<iCardProps> = ({user}) => {
 
     return (
         <div className={styles.card}>
-            <div className={styles.card_imageHandleJoined}>
+            <div className={styles.card_imageNameHandleJoined}>
                 <img className={styles.card_image} src={user.avatar_url} alt="avatar" />
-                <div>
-                    <h3><strong>{user.name}</strong></h3>
-                    <h4 className={styles.card_handle}>@{user.login}</h4>
-                    <h4 className={styles.card_joined}>Joined {formatDateString(user.created_at)}</h4>
+                <div className={styles.card_nameHandleJoined}>
+                    <div className={styles.card_nameHandle}>
+                        <h1><strong>{user.name}</strong></h1>
+                        <h3 className={styles.card_handle}>@{user.login}</h3>
+                    </div>
+
+                    <p className={styles.card_joined}>Joined {formatDateString(user.created_at)}</p>
                 </div>
             </div>
 
