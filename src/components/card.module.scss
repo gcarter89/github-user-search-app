@@ -125,5 +125,18 @@
 @media screen and (min-width: 769px) {
     .card {
         max-width: 730px;
+        &_imageNameHandleJoined {
+            align-items: unset;
+        }
+
+        &_nameHandleJoined {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        &_joined {
+            padding-top: 10px;
+        }
     }
 }
