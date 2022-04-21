@@ -51,12 +51,15 @@
         }
     }
 
+    &__notAvailable {
+        opacity: 0.6;
+    }
+
     &_socials {
         margin-top: 24px;
         svg {
-            padding-right: 20px;
             height: 20px;
-            width: 20px;
+            width: 40px;
         }
 
         ul {
@@ -66,6 +69,18 @@
                 display: flex;
                 align-items: center;
                 padding-bottom: 16px;
+                p {
+                    width: 85%;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    a {
+                        color: #4B6A9B;
+                        text-decoration: none;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
         }
 
@@ -125,5 +140,33 @@
 @media screen and (min-width: 769px) {
     .card {
         max-width: 730px;
+        padding: 48px;
+        &_imageNameHandleJoined {
+            align-items: unset;
+            margin-bottom: unset;
+        }
+
+        &_nameHandleJoined {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        &_joined {
+            padding-top: 10px;
+        }
+
+        &_description {
+            margin-top: -36px;
+            margin-left: 136px;
+        }
+
+        &_stats {
+            margin-left: 136px;
+        }
+
+        &_socials {
+            margin-left: 136px;
+        }
     }
 }
