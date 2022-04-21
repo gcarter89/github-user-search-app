@@ -52,3 +52,16 @@
         background-color: #60ABFF;
     }
 }
+
+@media screen and (min-width: 426px)  {
+
+    .searchbar {
+        max-width: 572px;
+        &_input {
+            font-size: 18px;
+        }
+        &_button {
+            font-size: 16px;
+        }
+    }
+}
