@@ -12,7 +12,9 @@ interface DarkModeContextValue {
 export const ThemeContext = createContext<DarkModeContextValue>({});
 
 function App() {
-    const [darkMode, setDarkMode] = useState(false);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const [darkMode, setDarkMode] = useState(prefersDark);
     
 
   return (

@@ -11,7 +11,6 @@ export default function Header() {
     function handleClick(event: React.MouseEvent) {
         event.preventDefault();
         if (setDarkMode) {
-            console.log('clicked!');
             setDarkMode(prevState => !prevState);
         }
     }
