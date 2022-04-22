@@ -7,10 +7,17 @@
     width: 100%;
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
     border-radius: 15px;
-    background-color: #FFFFFF;
-
+    
     padding-left: 16px;
     padding-right: 8px;
+
+    &__light {
+        background-color: #FEFEFE;
+    }
+
+    &__dark {
+        background-color: #1E2A47;
+    }
 
     &_iconInput {
         display: flex;
@@ -29,6 +36,24 @@
         font-size: 13px;
         line-height: 25px;
         text-overflow: ellipsis;
+    }
+
+    &_input__light {
+        color: #222731;
+    }
+
+
+    &_input__light::placeholder {
+        color: #4B6A9B;
+        
+    }
+
+    &_input__dark {
+        color: #FFFFFF;
+    }
+
+    &_input__dark::placeholder {
+        color: #FFFFFF;
     }
 
     &_error {

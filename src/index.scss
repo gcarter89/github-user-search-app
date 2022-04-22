@@ -16,16 +16,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-#root {
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-@media screen and (max-width: 280px) {
-    #root {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
-    
-}

@@ -1,18 +1,35 @@
 .card {
     margin-top: 16px;
-    background-color: #FEFEFE;
     border-radius: 15px;
     padding: 32px 24px 32px;
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
     width: 100%;
     max-width: 375px;
     box-sizing: border-box;
+
+    &__light {
+        background-color: #FEFEFE;
+    }
+
+    &__dark {
+        background-color: #1E2A47;
+    }
     
 
     &_imageNameHandleJoined {
         display: flex;
         gap: 20px;
         margin-bottom: 32px;
+    }
+
+    &_nameHandle {
+        &__light {
+            color: #2B3442;
+
+        }
+        &__dark {
+            color: #FFFFFF;
+        }
     }
 
     &_handle {
@@ -25,11 +42,23 @@
     }
 
     &_joined {
-        color: #697C9A;
+        &__light {
+            color: #697C9A;
+        }
+
+        &__dark {
+            color: #FFFFFF;
+        }
     }
 
     &_description {
-        color: #4B6A9B;
+        &__light {
+            color: #4B6A9B;
+        }
+        &__dark {
+            color: #FFFFFF;
+            opacity: 0.75;
+        }
     }
 
     &_stats {
@@ -40,19 +69,40 @@
         padding: 24px;
         justify-content: space-around;
         gap: 16px;
+
+        &__light {
+            background-color: #F6F8FF;
+        }
+
+        &__dark {
+            background-color: #141D2F;
+        }
     }
 
     &_stat {
+        font-size: 16px;
         text-align: center;
         font-weight: 700;
         h4 {
-            color: #4B6A9B;
             padding-bottom: 8px;
+        }
+
+        &__light {
+            h4 {
+                color: #4B6A9B;
+            }
+        }
+
+        &__dark {
+            color: #FFFFFF;
+            h4 {
+                color: #FFFFFF;
+            }
         }
     }
 
     &__notAvailable {
-        opacity: 0.6;
+        opacity: 0.75;
     }
 
     &_socials {
@@ -62,10 +112,40 @@
             width: 40px;
         }
 
+        &__dark {
+            ul {
+                li {
+                    svg {
+                        path {
+                            fill: #FFFFFF;
+                        }
+                    }
+                    color: #FFFFFF;
+                    p {
+                        a {
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__light {
+            ul {
+                li {
+                    color: #4B6A9B;
+                    p {
+                        a {
+                            color: #4B6A9B;
+                        }
+                    }
+                }
+            }
+        }
+
         ul {
             list-style: none;
             li {
-                color: #4B6A9B;
                 display: flex;
                 align-items: center;
                 padding-bottom: 16px;
@@ -74,7 +154,6 @@
                     text-overflow: ellipsis;
                     overflow: hidden;
                     a {
-                        color: #4B6A9B;
                         text-decoration: none;
                     }
                     a:hover {
@@ -113,6 +192,7 @@
         }
 
         &_stat {
+            font-size: 22px;
             text-align: start;
         }
 
