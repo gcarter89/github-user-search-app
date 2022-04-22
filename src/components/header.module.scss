@@ -12,7 +12,16 @@
         width: 50%;
         user-select: none;
         font-size: 26px;
+        text-align: left;
+        &__light {
+            color: #000000;
+        }
+
+        &__dark {
+            color: #FFFFFF;
+        }
     }
+
 
     &_button {
         display: flex;
@@ -22,13 +31,32 @@
         all: inherit;
         cursor: pointer;
         height: fit-content;
-        color: #4B6A9B;
+
+
+        &__light {
+            color: #4B6A9B;
+        }
+
+        &__dark {
+            color: #FFFFFF;
+            svg > g {
+                fill: #FFFFFF;
+            }
+        }
     }
 
-    &_button:hover {
+    &_button__light:hover {
         color: #222731;
         svg > path {
             fill: #222731;
+        }
+
+    }
+
+    &_button__dark:hover {
+        color: #90A4D4;
+        svg > g {
+            fill: #90A4D4;
         }
     }
 

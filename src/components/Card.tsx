@@ -27,7 +27,6 @@ interface iCardProps {
 
 
 const Card: React.FC<iCardProps> = ({user}) => {
-    console.log(user);
 
     return (
         <div className={styles.card}>
