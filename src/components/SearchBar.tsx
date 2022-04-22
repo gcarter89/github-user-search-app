@@ -25,7 +25,7 @@ const SearchBar: React.FC<iSearchBarProps> = ({setUsername, found}) => {
     }
 
     return (
-        <div className={darkMode ? `${styles.searchbar} ${styles.searchbar__dark}` : `${styles.searchbar} ${styles.searchbar__light}}`}>
+        <div className={darkMode ? `${styles.searchbar} ${styles.searchbar__dark}` : `${styles.searchbar} ${styles.searchbar__light}`}>
                 <SearchIcon className={styles.searchbar_icon} />
                 <input onChange={(e) => handleInputChange(e)} placeholder='Search Github username…' className={darkMode ? `${styles.searchbar_input} ${styles.searchbar_input__dark}` : `${styles.searchbar_input} ${styles.searchbar_input__light}}`} />
                 {!found && <p className={styles.searchbar_error}><strong>No results</strong></p>}

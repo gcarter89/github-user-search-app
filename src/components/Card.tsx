@@ -20,7 +20,6 @@ interface iUser {
     avatar_url?:string,
     created_at:string,
     bio?:string
-
 }
 
 interface iCardProps {
@@ -37,16 +36,16 @@ const Card: React.FC<iCardProps> = ({user}) => {
             <div className={styles.card_imageNameHandleJoined}>
                 <img className={styles.card_image} src={user.avatar_url} alt="avatar" />
                 <div className={styles.card_nameHandleJoined}>
-                    <div className={styles.card_nameHandle}>
+                    <div className={darkMode ? styles.card_nameHandle__dark : styles.card_nameHandle__light}>
                         <h1><strong>{user.name ? user.name : user.login}</strong></h1>
                         <h3 className={styles.card_handle}>@{user.login}</h3>
                     </div>
 
-                    <p className={styles.card_joined}>Joined {formatDateString(user.created_at)}</p>
+                    <p className={darkMode ? styles.card_joined__dark : styles.card_joined__light}>Joined {formatDateString(user.created_at)}</p>
                 </div>
             </div>
 
-            <div className={styles.card_description}>
+            <div className={darkMode ? `${styles.card_description} ${styles.card_description__dark}` : `${styles.card_description} ${styles.card_description__light}`}>
                 {user.bio ? 
                     <p>{user.bio}</p>
                 :
@@ -54,22 +53,22 @@ const Card: React.FC<iCardProps> = ({user}) => {
             }
             </div>
 
-            <div className={styles.card_stats}>
-                <div className={styles.card_stat}>
+            <div className={darkMode ? `${styles.card_stats} ${styles.card_stats__dark}` : `${styles.card_stats} ${styles.card_stats__light}` }>
+                <div className={darkMode ? `${styles.card_stat} ${styles.card_stat__dark}`: `${styles.card_stat} ${styles.card_stat__light}`}>
                     <h4>Repos</h4>
                     {user.public_repos}
                 </div>
-                <div className={styles.card_stat}>
+                <div className={darkMode ? `${styles.card_stat} ${styles.card_stat__dark}`: `${styles.card_stat} ${styles.card_stat__light}`}>
                     <h4>Followers</h4>
                     {user.followers}
                 </div>
-                <div className={styles.card_stat}>
+                <div className={darkMode ? `${styles.card_stat} ${styles.card_stat__dark}`: `${styles.card_stat} ${styles.card_stat__light}`}>
                     <h4>Following</h4>
                     {user.following}
                 </div>
             </div>
 
-            <div className={styles.card_socials}>
+            <div className={darkMode ? `${styles.card_socials} ${styles.card_socials__dark}` : `${styles.card_socials} ${styles.card_socials__light}`}>
                 <ul>
                     {user.location ?
                         <li>
