@@ -4,6 +4,8 @@ import {ReactComponent as TwitterIcon} from '../assets/icon-twitter.svg';
 import {ReactComponent as WebsiteIcon} from '../assets/icon-website.svg';
 import {ReactComponent as CompanyIcon} from '../assets/icon-company.svg';
 import formatDateString from '../helpers/formatDateString';
+import { useContext } from 'react';
+import { ThemeContext } from '../App';
 
 interface iUser {
     name?: string,
@@ -28,8 +30,10 @@ interface iCardProps {
 
 const Card: React.FC<iCardProps> = ({user}) => {
 
+    const {darkMode} = useContext(ThemeContext);
+
     return (
-        <div className={styles.card}>
+        <div className={darkMode ? `${styles.card} ${styles.card__dark}`: `${styles.card} ${styles.card__light}`}>
             <div className={styles.card_imageNameHandleJoined}>
                 <img className={styles.card_image} src={user.avatar_url} alt="avatar" />
                 <div className={styles.card_nameHandleJoined}>
