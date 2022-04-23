@@ -38,7 +38,7 @@ const Card: React.FC<iCardProps> = ({user}) => {
                 <div className={styles.card_nameHandleJoined}>
                     <div className={darkMode ? styles.card_nameHandle__dark : styles.card_nameHandle__light}>
                         <h1><strong>{user.name ? user.name : user.login}</strong></h1>
-                        <h3 className={styles.card_handle}>@{user.login}</h3>
+                        <h2 className={styles.card_handle}>@{user.login}</h2>
                     </div>
 
                     <p className={darkMode ? styles.card_joined__dark : styles.card_joined__light}>Joined {formatDateString(user.created_at)}</p>
